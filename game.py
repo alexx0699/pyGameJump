@@ -259,25 +259,13 @@ class Juego:
         )
         self.pantalla.blit(texto_puntuacion, (10, 10))
         
-        # Mostrar controles
-        texto_controles = self.fuente_pequena.render(
-            "A/D para mover", True, NEGRO
-        )
-        self.pantalla.blit(texto_controles, (10, 50))
-        
-        # Mostrar dificultad
-        texto_dificultad = self.fuente_pequena.render(
-            f"Dificultad: {self.dificultad:.1f}x", True, NEGRO
-        )
-        self.pantalla.blit(texto_dificultad, (10, 75))
-        
         pygame.display.flip()
     
     def game_over(self):
         # Pantalla de Game Over
         self.pantalla.fill(NEGRO)
         
-        texto_go = self.fuente.render("GAME OVER", True, ROJO)
+        texto_go = self.fuente.render("PERDISTE", True, ROJO)
         rect_go = texto_go.get_rect(center=(ANCHO // 2, ALTO // 2 - 50))
         self.pantalla.blit(texto_go, rect_go)
         
@@ -290,7 +278,7 @@ class Juego:
         self.pantalla.blit(texto_puntuacion, rect_puntuacion)
         
         texto_reiniciar = self.fuente_pequena.render(
-            "Presiona ESPACIO para reiniciar", True, BLANCO
+            "ESPACIO para reiniciar", True, BLANCO
         )
         rect_reiniciar = texto_reiniciar.get_rect(
             center=(ANCHO // 2, ALTO // 2 + 50)
@@ -298,7 +286,7 @@ class Juego:
         self.pantalla.blit(texto_reiniciar, rect_reiniciar)
         
         texto_salir = self.fuente_pequena.render(
-            "Presiona ESC para salir", True, BLANCO
+            "ESC para salir", True, BLANCO
         )
         rect_salir = texto_salir.get_rect(
             center=(ANCHO // 2, ALTO // 2 + 80)
